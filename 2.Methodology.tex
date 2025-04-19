@@ -1,0 +1,178 @@
+\chapter{Proposed Methodology}
+The Simple Combination Lock is a digital logic project that uses XOR and NOR gates to compare a pre-set binary code with a user-entered one. If the codes match, a green LED lights up; otherwise, a red LED indicates a mismatch. This experiment is ideal for understanding digital logic principles and gate-based authentication.
+
+%This is for reference only. Delete before finalization
+
+
+\section{Requirement Analysis \& Design Specification}
+\begin{itemize}
+\item \textbf{Breadboard:}  A breadboard is used to assemble and test the logic circuit without soldering. Its internal metal strips make it easy to prototype and debug the digital combination lock design.
+\item\textbf{XOR Gate (4070):} The 4070 IC provides quad 2-input XOR logic gates. Each gate outputs a HIGH signal only when its two inputs differ, making it ideal for comparing the bits of the user-entered code with the pre-set key code.
+\item\textbf{NOR Gate (4001):} The 4001 IC contains quad 2-input NOR gates. In this circuit, it functions as a controlled inverter and ensures that output is enabled only when the "Enter" button is pressed.
+\item \textbf{DIP Switches (4-position)} These switches act as binary code entry points. One is used to set the correct "key" code, while the other is used to input the user code for comparison.
+\item\textbf{LEDs (Green & Red)} LEDs indicate the outcome of the code comparison. The green LED ("Go") lights up on a successful match, while the red LED ("No Go") indicates an incorrect entry.
+\item \textbf{1N914 Diodes} These switching diodes are used to create a diode logic OR gate, aggregating mismatch signals from the XOR outputs.
+\item\textbf{Resistors (10kΩ and 470Ω):} 10kΩ resistors are used for pull-down and pull-up configurations, ensuring proper logic levels. 470Ω resistors limit current through the LEDs to prevent damage.
+\item \textbf{Power supply (9V):} A 9V power supply provides a stable 9-volt output to power electronic circuits and devices.\cite{2.1.1}
+\end{itemize}
+
+\begin{table}[h!]
+\subsection{Block Diagram}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|p{8cm}|}
+\hline
+\textbf{Stage} & \textbf{Components} & \textbf{Function} \\ \hline
+Input Stage & DIP Switches & One stores the key code, the other accepts user input for comparison. \\ \hline
+Comparison Logic & XOR Gates, Diodes, Resistors & Compares each bit pair and signals mismatches via the diode logic. \\ \hline
+Control Logic & NOR Gates, Enter Button & Enables output only when the button is pressed. \\ \hline
+Output Stage & LEDs, Resistors & Shows result: green for match, red for mismatch. \\ \hline
+Power Supply & 9V Batteries & Provides consistent voltage for all logic components. \\ \hline
+\end{tabular}%
+}
+\centering
+\caption{Stages and Functions of Digital Lock With Binary Code Circuit}
+\end{table}
+
+\begin{table}[h!]
+\subsection{Circuit Details}
+\begin{tabular}{|c|p{10cm}|}
+\hline
+\textbf{Section} & \textbf{Description} \\ \hline
+\textbf{Input Stage} & Two DIP switch assemblies are used—one hidden (key) and one visible (data). \\ \hline
+\textbf{XOR Comparison} & XOR gates compare corresponding bits from both DIP switches. \\ \hline
+\textbf{Diode Logic} & Diodes form a 4-input OR gate to detect any mismatched bit.\\ \hline
+\textbf{Control Logic} & NOR gates activate output only when the "Enter" button is pressed. \\ \hline
+\textbf{Output Stage} & LEDs indicate if the entered code is correct or not. \\ \hline
+\end{tabular}
+\centering
+\caption{Stages and Descriptions of Digital Lock With Binary Code Circuit}
+\end{table}
+\subsection{Overview}
+The circuit shown in the schematic represents a basic logic-based combination lock. It compares two 4-bit binary codes using XOR logic and indicates match/mismatch via LEDs. The “key” code is preset and hidden, while the user inputs a code via a second switch.\\
+When the “Enter” pushbutton is pressed, the XOR gates compare each bit. If all bits match, the green LED turns on. If any bit differs, the diode-OR logic flags the mismatch, and the NOR gate triggers the red LED. This experiment provides a hands-on introduction to bit-level logic comparison and basic digital security concepts.\cite{2.1.3}
+
+\subsection{Proposed Methodology}
+\begin{itemize}
+\item \textbf{Code Input:} The user enters a 4-bit binary number using a DIP switch. A separate hidden DIP switch holds the correct “key” code.
+\item \textbf{Bit Comparison:} XOR gates compare the corresponding bits from the user and key switches. Mismatched bits generate HIGH signals.
+\item \textbf{Mismatch Detection:} Diode logic collects HIGH signals from any XOR gate. A pull-down resistor ensures a LOW signal if all bits match.
+\item\textbf{Verification Trigger:} When the "Enter" button is pressed, the NOR gate logic checks the result. If there's no mismatch, the green LED lights up; otherwise, the red LED turns on.
+\item\textbf{Power Supply:} One 9V batteries provide necessary power for CMOS ICs and LEDs, ensuring stable circuit operation.\cite{2.1.1}
+\end{itemize}
+
+
+\begin{figure}[h] % 'h' for placing it "here"
+\subsection{System Design}
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/Others/Circuit diagram.JPG} % Replace 'diagram.png' with your image file
+    \caption{Circuit Diagram.}
+    \label{fig:sample}
+\end{figure}
+\begin{figure}[H]
+
+    \centering
+    \includegraphics[width=1.0\textwidth]{figures/Others/pin diagram.jpg} % Replace with your image path
+    \caption{Pin Diagram.}
+    \label{fig:sample}
+\end{figure}
+\begin{table}[h!]
+\subsection{Costing}
+\centering
+\begin{tabular}{|>{\centering\arraybackslash}m{4cm}|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{3cm}|}
+\hline
+\textbf{Item} & \textbf{Required piece} & \textbf{Price} \\
+\hline
+4001 quad NOR gate IC & 2 & 50BDT\\
+\hline
+4070 quad XOR gate IC & 2 & 50BDT \\
+\hline
+4-position DIP switches & 2 & 40BDT\\
+\hline
+Light-emitting diodes (LEDs) & 2 & 5BDT\\
+\hline
+1N914 switching diodes & 4 & 60BDT\\
+\hline
+10 kΩ resistors & 10 & 20BDT\\
+\hline
+470 Ω resistors & 2 & 4BDT\\
+\hline
+Breadboards& 2 & 240BDT\\
+\hline
+Pushbutton switch (normally open) & 1 & 5BDT\\
+\hline
+6-volt batteries & 1 & 120BDT\\
+\hline
+Jumper Wires & 1 Set & 120BDT\\
+\hline
+ &  &Total:714BDT\\
+\hline
+\end{tabular}
+\caption{Cost Analysis}
+\end{table}
+
+\subsection{Google Site}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/UI/home.jpg} % Replace with your image path
+    \caption{Home Page}
+    \label{fig:sample}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{figures/UI/team info.jpg} % Replace with your image path
+    \caption{Team Info}
+    \label{fig:sample}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{figures/UI/introduction.jpg} % Replace with your image path
+    \caption{Introduction}
+    \label{fig:sample}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/UI/objective.jpg} % Replace with your image path
+    \caption{Objective}
+    \label{fig:sample}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/UI/components.jpg} % Replace with your image path
+    \caption{Components}
+    \label{fig:sample}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/UI/working process.jpg} % Replace with your image path
+    \caption{Working Process}
+    \label{fig:sample}
+\end{figure}
+\url{https://sites.google.com/view/digital-lock-with-binary-code/home}
+
+
+\section{Overall Project Plan}
+The Simple Combination Lock Project is designed to create a compact and efficient locking mechanism using basic digital logic principles. Its main objective is to provide a secure code-based system without relying on microcontrollers or complex software, making it an excellent educational project for understanding combinational logic. The lock operates purely through hardware components like XOR gates, NOR gates, diodes, and DIP switches, offering a straightforward way to demonstrate binary comparison and logic gate functions. This solution is especially useful for low-power, cost-effective security applications or educational purposes where simplicity and functionality are key.\\
+
+\noindent The project will begin with detailed research into existing logic-based lock systems to understand their structure and identify areas of improvement or simplification. Afterward, the design phase will outline the logic gate arrangement and key components, including the method for comparing input codes to a preset key using XOR gates. The component selection process will focus on choosing suitable DIP switches for binary input, CMOS logic ICs for comparison and control, and appropriate resistors and diodes to build the decision-making part of the circuit. Once finalized, the circuit will be assembled on a breadboard for flexibility and ease of testing, with careful wiring to prevent logic errors and maintain circuit integrity.\\
+
+\noindent Following assembly, the testing phase will validate the circuit's functionality under various input combinations to ensure it accurately detects correct and incorrect codes. The role of the "Enter" switch will be verified to confirm it triggers the appropriate logic response, lighting up either the green (correct) or red (incorrect) LED. This will be followed by iterative refinements based on the test results to improve performance and reduce false positives. Ultimately, the success of this project lies in demonstrating the effectiveness of hardware-based authentication using logic circuits, offering a practical, software-free locking mechanism that reflects real-world digital logic applications.\cite{2.2}\\
+
+\begin{table}[h!]
+\subsection{Time Frame}
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\textbf{Task}              & \textbf{Week 1} & \textbf{Week 2} & \textbf{Week 3} & \textbf{Week 4} \\ \hline
+Requirement Analysis       & \checkmark              &                 &                 &                 \\ \hline
+Circuit Design             & \checkmark            &                 &                 &                 \\ \hline
+Component Selection        & \checkmark              &                 &                 &                 \\ \hline
+Simulation Testing         &                & \checkmark              &                 &                 \\ \hline
+Breadboard Assembly        &                & \checkmark              &                 &                 \\ \hline
+Prototype Refinement       &                &                 & \checkmark              &                 \\ \hline
+Documentation              &                &                 &                 & \checkmark              \\ \hline
+\end{tabular}
+\caption{Project Schedule.}
+\label{tab:project_schedule}
+\end{table}
+
+

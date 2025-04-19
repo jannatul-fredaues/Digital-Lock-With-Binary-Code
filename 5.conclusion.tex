@@ -1,0 +1,30 @@
+
+\chapter{Conclusion}
+
+%This is for reference only. Delete before finalization
+
+This chapter provides an overview of the Simple Combination Lock project, outlining the main objectives, design methodology, and key outcomes. It also addresses the limitations faced during the implementation and explores potential improvements to enhance the circuit's security, usability, and robustness. 
+
+%This is for reference only. Delete before finalization
+
+\section{Summary}
+\textbf {Summary:} The goal of the Simple Combination Lock project is to create a basic digital security mechanism using XOR and NOR gates to compare binary inputs. The circuit utilizes two sets of 4-bit DIP switches—one for the hidden key code and another for user input. XOR gates act as bit comparators, outputting a high signal if the bits differ. A diode network combines these outputs to form an OR function, feeding into a NOR logic block that controls LED indicators based on the result.\\
+When the "Enter" pushbutton is pressed:\\
+If the input code matches the key code, all XOR outputs are low, and the green "Go" LED lights up.\\
+If there's any mismatch, one or more XOR outputs are high, and the red "No Go" LED is activated.\\
+Despite its simplicity, the project effectively demonstrates digital logic concepts like XOR-based comparison, diode-OR configurations, and NOR gate control logic. The circuit performs well for educational purposes and helps learners understand the basics of secure digital design.\cite{5.1} 
+\section{Limitation}
+Although the combination lock operates as intended, the project has several limitations::\\
+\textbf{Low Security:} With only 4-bit code comparison, there are just 16 possible combinations (0000–1111), making it vulnerable to brute-force attempts. \\
+\textbf{No Error Handling:} The system does not include features like lockout after multiple failed attempts or alarms for incorrect entries. \\
+\textbf{Lack of Scalability:} Expanding the circuit to support longer bit codes or multiple users requires significant redesign.\\  
+\textbf{Component Sensitivity:} As the circuit uses CMOS ICs (4001 and 4070), it is sensitive to static electricity and must be handled carefully during assembly and testing.\cite{5.2} \\
+\section{Future Work}
+To overcome the limitations and extend the functionality of the Simple Combination Lock, the following improvements can be considered in future versions: \\
+\textbf{Code Expansion:}: Increase the code length from 4 bits to 8 bits or more to enhance security and make brute-force attacks more difficult. \\
+\textbf{Micro-controller Integration:} Replace the basic gate logic with a micro-controller (e.g., Arduino or PIC) to allow programmable codes, real-time validation, and the ability to store multiple user credentials.\\ 
+\textbf{Tamper Detection and Alarms:} : Integrate sensors or counters to detect multiple failed attempts and trigger alarms or lockout mechanisms, improving security. \\
+\textbf{User Interface Enhancement:} Add a digital display and keypad for easier input and feedback, along with audio or visual cues to show access status. \\
+\textbf{Remote Access Capability:}  Incorporate wireless technologies like Bluetooth or Wi-Fi to allow remote code entry or monitoring, making the system suitable for modern smart home integration. \\
+\textbf{Scalability Features:} Design the system to support multiple locks or zones within a facility, controlled from a central unit. \cite{5.3.1} \\
+In essence, while the Simple Combination Lock effectively demonstrates the use of logic gates in a secure system, addressing the limitations and implementing these future enhancements will elevate it to a more practical and scalable digital security solution. Such improvements will make it viable for applications in home automation, restricted-access areas in offices, educational facilities, and more.\cite{5.3.2}

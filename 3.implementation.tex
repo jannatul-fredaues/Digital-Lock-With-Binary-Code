@@ -1,0 +1,26 @@
+\chapter{Implementation and Results}
+
+This chapter outlines the implementation and evaluation of the Simple Combination Lock circuit, highlighting its hardware-based authentication mechanism, efficient design, and reliability in basic access control scenarios. The system leverages fundamental logic gates to compare binary inputs, offering a robust example of how combinational logic can be used in real-world applications. While the circuit performed well in controlled environments, opportunities for expansion and minor improvements were also identified during testing.
+\end{center}
+
+%This is for reference only. Delete before finalization
+
+\section{Implementation}
+The Simple Combination Lock circuit is built entirely using digital logic components, including XOR and NOR gates, DIP switches, LEDs, and supporting elements like diodes and resistors. Two DIP switches represent the user input and preset key code. XOR gates compare each corresponding bit of the input against the key. If all bits match, a diode logic OR network outputs LOW, allowing a NOR gate to trigger a green LED when the “Enter” button is pressed. If any bit differs, the diode network outputs HIGH, triggering the NOR logic to illuminate the red LED instead. This entire setup is powered by a 6V battery supply, ensuring compatibility with CMOS logic ICs.\\
+The system was implemented on a breadboard to facilitate easy adjustments and wire tracing. Special care was taken to avoid floating logic levels and to maintain a clean signal path from input to output. The LEDs serve as visual indicators of the result, and the circuit is reset simply by toggling the DIP switches or re-pressing the "Enter" button. No microcontroller or software is used, making this design both simple and efficient for educational purposes.\cite{3.1}
+
+\section{Performance Analysis}
+The lock system demonstrated consistent performance in comparing binary codes. The XOR gates correctly identified mismatches between input and key bits, and the diode-OR logic reliably aggregated any errors. The NOR gate functioned accurately to restrict output signals unless the “Enter” button was pressed, enhancing control logic and preventing accidental activation. The use of pull-down resistors helped maintain stable logic levels, and the CMOS ICs operated efficiently within the 9V power range.\\
+Although highly reliable under normal conditions, the system's limitations are tied to the number of bits used for comparison. With only 4 bits, the total number of combinations is limited to 16, which may not be sufficient for high-security applications. However, for demonstration purposes and simple access systems, this was acceptable. The hardware-only design promotes low power consumption and minimal circuit complexity while still achieving functional results.\cite{3.2}
+
+\section{Results and Discussion}
+During testing, the Simple Combination Lock circuit accurately detected both correct and incorrect code entries, providing clear visual feedback through the LEDs. The circuit responded instantly upon pressing the "Enter" button, with no noticeable lag. In all tested combinations, the logic gates executed their functions without fault, affirming the reliability of the design. The 4-bit configuration proved effective for simple demonstrations, though more complex versions could be built by scaling the logic to 6 or 8 bits for enhanced security.\\
+The diode-based OR logic and NOR gate control system contributed significantly to the lock’s overall responsiveness and user feedback. The power supply was stable, and no overheating or voltage drop issues were observed. Overall, the circuit is reliable, cost-effective, and an excellent representation of logic gate implementation in security systems. Future enhancements could include integrating a buzzer for incorrect entries or expanding the code length to increase security levels.\cite{3.3}\\
+
+\begin{figure}[H]
+
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/Others/result.jpg} % Replace with your image path
+    \caption{Result of Circuit Diagram.}
+    \label{fig:sample}
+\end{figure}
